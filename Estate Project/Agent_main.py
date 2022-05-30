@@ -17,11 +17,12 @@ def Run_Agent_Mood():
     from constant import AGENTS_FILE_PATH
     agents_data = load_data(AGENTS_FILE_PATH)
     a = [ Agent(**d) for d in agents_data]
+    # Superviser.agents_list = a
     agent =None
     print('***** Agent Login *****')
     while agent is None:
         username = input(' Enter Your Username: ')
-        Superviser.search(username)
+        agent = Superviser.search(username)
         if agent is None:
             print(f' {username} Not Found!  ')
 

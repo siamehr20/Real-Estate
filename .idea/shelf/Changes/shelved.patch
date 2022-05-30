@@ -1,0 +1,1316 @@
+Index: Estate_prj/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/.idea/modules.xml b/Estate_prj/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1646383704316)
++++ b/Estate_prj/.idea/modules.xml	(date 1646383704316)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/.vscode.iml" filepath="$PROJECT_DIR$/.idea/.vscode.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: Estate_prj/.idea/.vscode.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/.idea/.vscode.iml b/Estate_prj/.idea/.vscode.iml
+new file mode 100644
+--- /dev/null	(date 1646467599967)
++++ b/Estate_prj/.idea/.vscode.iml	(date 1646467599967)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 3.10 (Estate_prj)" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: Estate Project/Store.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Store.py b/Estate Project/Store.py
+new file mode 100644
+--- /dev/null	(date 1652948531513)
++++ b/Estate Project/Store.py	(date 1652948531513)
+@@ -0,0 +1,14 @@
++import json
++import os
++
++
++def save_to_file(file_path , data):
++    with open(file_path , 'a') as f:
++        f.write(json.dumps(data)+'\n')
++
++
++def load_data(file_path):
++    with open(file_path , 'r') as f:
++        lines = f.read()
++        agents = json.loads(lines)
++    return agents
+Index: Estate_prj/.idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/.idea/.gitignore b/Estate_prj/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1646383706951)
++++ b/Estate_prj/.idea/.gitignore	(date 1646383706951)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: Estate_prj/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/.idea/misc.xml b/Estate_prj/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1646467600103)
++++ b/Estate_prj/.idea/misc.xml	(date 1646467600103)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (Estate_prj)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: Estate Project/Fixtures/Agents_data.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Fixtures/Agents_data.json b/Estate Project/Fixtures/Agents_data.json
+new file mode 100644
+--- /dev/null	(date 1652949737281)
++++ b/Estate Project/Fixtures/Agents_data.json	(date 1652949737281)
+@@ -0,0 +1,5 @@
++
++
++[{"username": "siamehr", "password": "123", "first_name": "sdsd", "last_name": "hhj", "email": "cdcdcdd"} , {"username": "mehr", "password": "1233", "first_name": "assos", "last_name": "asas", "email": "fvvf;"}, {"username": "agent2", "password": "123", "first_name": "agnt_1", "last_name": "agent2", "email": "wd;;"},{"username": "seta1", "password": "1234", "first_name": "setayesh", "last_name": "rad", "email": "setayedh2G@gmail.vom"} ]
++
++
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1651916126984)
++++ b/.idea/misc.xml	(date 1651916126984)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (projects)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: Estate Project/Agent_main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Agent_main.py b/Estate Project/Agent_main.py
+new file mode 100644
+--- /dev/null	(date 1652949275782)
++++ b/Estate Project/Agent_main.py	(date 1652949275782)
+@@ -0,0 +1,34 @@
++
++
++import sys
++from Estate import Apartment
++from utils import check_credentials
++from Agent import Superviser , Agent
++from Profile import ApartmentRental, ApartmentPurchase, HouseRental, HousePurchase
++from Store import save_to_file , load_data
++
++
++def Auth():
++    pass
++
++
++
++def Run_Agent_Mood():
++    from constant import AGENTS_FILE_PATH
++    agents_data = load_data(AGENTS_FILE_PATH)
++    a = [ Agent(**d) for d in agents_data]
++    agent =None
++    print('***** Agent Login *****')
++    while agent is None:
++        username = input(' Enter Your Username: ')
++        agent = Superviser.search(username)
++        if agent is None:
++            print(f' {username} Not Found!  ')
++
++    password = input(' Enter Your Password: ')
++    if agent.check_password(password):
++        print(f'**** Welcome {agent.username} **** ')
++        agent.create_new()
++
++    else:
++        print('Wrong user or pass')
+\ No newline at end of file
+Index: Estate_prj/.idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/.idea/inspectionProfiles/profiles_settings.xml b/Estate_prj/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1646384254779)
++++ b/Estate_prj/.idea/inspectionProfiles/profiles_settings.xml	(date 1646384254779)
+@@ -0,0 +1,7 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="PROJECT_PROFILE" value="Default" />
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: Estate Project/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/main.py b/Estate Project/main.py
+new file mode 100644
+--- /dev/null	(date 1652947562366)
++++ b/Estate Project/main.py	(date 1652947562366)
+@@ -0,0 +1,14 @@
++import sys
++
++if __name__ == '__main__':
++    def Run_App():
++        mood = input('Enter The Running Mood(0-1): ')
++        from constant import RUNNNIG_MOOD
++        run_func = RUNNNIG_MOOD[mood]
++        run_func()
++        print('s')
++flag = 0
++while flag != 1:
++    Run_App()
++    flag = int(input('Continue(0) _ Exit(1)'))
++# Run_App()
+Index: Estate Project/Deal.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Deal.py b/Estate Project/Deal.py
+new file mode 100644
+--- /dev/null	(date 1651939826338)
++++ b/Estate Project/Deal.py	(date 1651939826338)
+@@ -0,0 +1,21 @@
++
++class BaseDeal:
++    def __init__(self, client_name, seller_name, date, **kwargs):
++        super().__init__(**kwargs)
++        self.client_name = client_name
++        self.seller_name = seller_name
++        self.date = date
++
++
++class RentDeal(BaseDeal):
++
++    def __init__(self, pre_paid, monthly, **kwargs):
++        super().__init__(**kwargs)
++        self.pre_paid = pre_paid
++        self.monthly = monthly
++
++
++class PurchaseDeal(BaseDeal):
++    def __init__(self, total_cost, **kwargs):
++        super().__init__(**kwargs)
++        self.totaL_cost = total_cost
+Index: Estate Project/utils.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/utils.py b/Estate Project/utils.py
+new file mode 100644
+--- /dev/null	(date 1652708403634)
++++ b/Estate Project/utils.py	(date 1652708403634)
+@@ -0,0 +1,13 @@
++
++# from constant import SUPERVISER_CREDENTIALS
++import sys
++
++
++def check_credentials(argv):
++    from constant import SUPERVISER_CREDENTIALS
++    if len(sys.argv) > 2:
++        # for i in range(len(SUPERVISER_CREDENTIALS)):
++        username_check = bool(SUPERVISER_CREDENTIALS[0]['username'] == sys.argv[1])
++        password_check = bool( SUPERVISER_CREDENTIALS[0]['password'] == sys.argv[2])
++
++    return username_check and password_check
+Index: Estate Project/tset2.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/tset2.py b/Estate Project/tset2.py
+new file mode 100644
+--- /dev/null	(date 1652770279495)
++++ b/Estate Project/tset2.py	(date 1652770279495)
+@@ -0,0 +1,77 @@
++# from cgitb import reset
++# from mimetypes import init
++# from unittest import result
++import hashlib as hash
++#
++# sia = {
++#     'name' :'siavash', 'last':'RAD','age':'21'
++# }
++#
++# class person:
++#
++#     def __init__(self,name,last,age) :
++#         self.name = name
++#         self.last = last
++#         self.age = age
++#
++# class student(person):
++#     def __init__(self,**kw):
++#         return super().__init__(**kw)
++#
++#
++#         return result
++# class Result(person):
++#     def __init__(self,**kw):
++#         super().__init__(**kw)
++#
++#     def prop():
++#         name = 'Siavash'
++#         last = 'Rad'
++#         age = '21'
++#
++#         result = {
++#             'name':name ,
++#             'last': last
++#             , 'age' : age
++#         }
++#
++#         return result
++#
++#
++#
++# data = Result.prop()
++# st = student(**data)
++#
++# print(st.age)
++
++
++class pers:
++    def __init__(self, name, age, uid):
++        self.name = name
++        self.age = age
++        self.uid = uid
++
++
++class proff(pers):
++    def __init__(self, courseid, **kwargs):
++        self.courseid = courseid
++
++
++class Stu(pers):
++    def __init__(self, term, **kwargs):
++        self.term = term
++        super().__init__(**kwargs)
++
++
++kwargsstu1 = Stu(name='siavash', age=21, uid=9811415038, term=6)
++
++result = {
++    'floor ': 1, 'balcony': True
++    , 'elevator': True
++}
++result2 = {
++    'room ': 24, 'park': True
++    , 'addss': 'taka st'
++}
++result.update(result2)
++
+Index: Estate Project/Estate.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Estate.py b/Estate Project/Estate.py
+new file mode 100644
+--- /dev/null	(date 1652539714376)
++++ b/Estate Project/Estate.py	(date 1652539714376)
+@@ -0,0 +1,97 @@
++from unittest import result
++
++
++# from Agent import Superviser
++
++
++class Baseproperty:
++    def __init__(self, area, room_number, parking, address, **kwargs):
++        self.area = area
++        self.room_number = room_number
++        self.parking = parking
++        self.address = address
++
++    @classmethod
++    def prompt(cls, **kwargs):
++        cls.area = input('enter Area :')
++        cls.room_number = input("Enter Rooms: ")
++        cls.parking = input('Has parking: ')
++        cls.address = input('Enter address: ')
++
++        # Baseproperty( area= cls.area, room_number = cls.room_number, parking=cls.parking, address = cls.address)
++
++        result = {
++            'Area': cls.area,
++            'Room_number': cls.room_number,
++            'Parking': cls.parking,
++            'Address': cls.address
++        }
++        return result
++
++
++class Apartment(Baseproperty):
++
++    def __init__(self, floor, elevator, balcony, **kwargs):
++        super().__init__(**kwargs)
++        self.floor = floor
++        self.elevator = elevator
++        self.balcony = balcony
++
++    @classmethod
++    def prompt(cls):
++        floor = input('Which floor: ')
++        elevator = input('Has elevator or not?')
++        balcony = input('Has balvony or not?')
++
++        result = {
++            'floor ': floor, 'balcony': balcony
++            , 'elevator': elevator
++        }
++
++        result.update(Baseproperty.prompt())
++
++        return result
++
++
++class House(Baseproperty):
++    def __init__(self, pool, yard, **kwargs):
++        super().__init__(**kwargs)
++        self.pool = pool
++        self.yard = yard
++
++    @classmethod
++    def propmt(cls):
++        pool = input('Has pool ? ')
++        yard = input('Has Yard? ')
++        result = {
++            'pool': pool, 'yard': yard
++        }
++        return result
++
++
++class Rental:
++
++    def __init__(self, pre_paid, monthly, **kwargs):
++        super().__init__(**kwargs)
++        self.pre_paid = pre_paid
++        self.monthly = monthly
++
++    @classmethod
++    def prompt(cls):
++        pre_paid = input('Enter Pre_paid Amount: ')
++        monthly = input('Enter Monthly Amount: ')
++
++        result = {
++            'pre_paid': pre_paid, 'monthly': monthly
++        }
++        return result
++
++
++class Purchasable:
++    def __init__(self, cost, **kwargs):
++        super().__init__(**kwargs)
++        self.cost = cost
++
++    @classmethod
++    def prompt(cls):
++        return {' cost': input('Enter the Cost ')}
+Index: Estate Project/siamehr.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/siamehr.txt b/Estate Project/siamehr.txt
+new file mode 100644
+--- /dev/null	(date 1652948209458)
++++ b/Estate Project/siamehr.txt	(date 1652948209458)
+@@ -0,0 +1,2 @@
++[{"username": "siamehr", "password": "123", "first_name": "sdsd", "last_name": "hhj", "email": "cdcdcdd"} , {"username": "from store import load_data", "password": "1233", "first_name": "assos", "last_name": "asas", "email": "fvvf;"}, {"username": "agent2", "password": "123", "first_name": "agnt_1", "last_name": "agent2", "email": "wd;;"},
++{"username": "seta1", "password": "1234", "first_name": "setayesh", "last_name": "rad", "email": "setayedh2G@gmail.vom"}  ]
+Index: java.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/java.js b/java.js
+new file mode 100644
+--- /dev/null	(date 1644075112313)
++++ b/java.js	(date 1644075112313)
+@@ -0,0 +1,3 @@
++console.log('hello world!')
++
++document.getElementById
+\ No newline at end of file
+Index: Estate Project/test.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/test.py b/Estate Project/test.py
+new file mode 100644
+--- /dev/null	(date 1646052010310)
++++ b/Estate Project/test.py	(date 1646052010310)
+@@ -0,0 +1,152 @@
++from email.message import MIMEPart
++from abc import ABCMeta
++
++
++""" class Person:
++
++    def __init__(self,fname,lname) :
++        self.fname = fname
++        self.lname = lname
++
++    def show_fullname(self):
++        print('name is {} and lname is {}'.format(self.fname , self.lname))
++
++    def __str__(self) -> str:
++        return 'name is {} and lname is {}'.format(self.fname , self.lname)
++
++class Student(Person):
++    students = []
++    def __init__(self, fname, lname,sid):
++        super().__init__(fname, lname)
++        self.studentid = sid
++        self.students.append(self)
++
++    def __str__(self) :
++        return 'studet : {} and id is {}'.format(super().__str__(),self.studentid)
++
++
++class Teacher(Person):
++
++    def __init__(self, fname, lname,tid):
++        super().__init__(fname, lname)
++        self.teacherid = tid
++
++class StudentList(list):
++
++    def __init__(self,*args,**kwargs) :
++        self.name = kwargs['name']
++        super().__init__(*args,**kwargs)
++        
++
++    def search(self,name):
++        pass
++    
++# s1 = Student('siavash', 'rad',232)
++# s2 = Student('Mahan', 'Mahtabi',2544)
++# s3 = Student('Raeza', 'Mohammadi',955)
++# print(s1)
++# s1.show_fullname() """
++
++
++
++class BaseUser: 
++    """ hello """
++    def __init__(self,F_name,L_name,age,*args,**kwargs) :
++        self.fname = F_name
++        self.lname = L_name
++        self.age = age
++   
++    @staticmethod
++    def Fullname(self):
++        return self.fname + self.lname
++    
++    def __repr__(self) -> str:
++        return ': (\'{}\')'.format(  self.fname )
++
++    def __str__(self) -> str:
++        return 
++
++    def __add__(self,other):
++        return self.fname + other.fname
++
++    def __len__(self):
++        return len(self.Fullname()) 
++
++class BaseDevice:
++    def __init__(self,model,os_version,os_name,*args,**kwargs):
++        self.model1 = model
++        self.os_version = os_version
++        self.os_name = os_name
++        super().__init__(*args, **kwargs)
++
++    def title(self):
++        return f' Device_Model :{self.model1}'
++
++class MobileUser(BaseUser,BaseDevice):
++
++    user_list = []
++
++
++  
++    def __init__(self,phone_number,F_name,uuid,*args,**kwargs):
++        self.phone_number = phone_number
++        self.uuid =uuid
++        self.fname= F_name
++        super().__init__(F_name,*args,**kwargs)
++        MobileUser.user_list.append(self.uuid)
++
++    @classmethod
++    def create(cls, uuid,*args,**kwargs):
++        exist = False
++        if uuid  in cls.user_list:
++            exist = True
++            return None
++        else:
++            ## call the initial function
++            return cls(uuid=uuid,**kwargs)
++
++    # def __eq__(self,other) -> bool:
++    #     return self.phone_number == other.phone_number
++
++    
++    
++    
++
++    def __str__(self) -> str:
++        return self.fname
++
++class Web_User(BaseUser):
++    def __init__(self,email,*args,**kwargs):
++        super().__init__(*args,**kwargs)
++        self.email = email
++
++    
++
++
++
++if __name__ =='__main__':
++    user = MobileUser.create( phone_number='09360581929',F_name= 'siavash',L_name = 'rad',age = 21, 
++                        model = 'note 8 pro' ,os_version=10, os_name = 'OREO' ,uuid = 123  )
++
++    user2 = MobileUser.create( phone_number='09360581929',F_name= 'MAhan',L_name = 'shamsi',age = 31, 
++                        model = 'note 8 pro' ,os_version=11, os_name = 'ORE33O' ,uuid=123  )
++
++    user2 = MobileUser.create( phone_number='09360581929',F_name= 'MAhan',L_name = 'shamsi',age = 31, 
++    model = 'note 8 pro' ,os_version=11, os_name = 'ORE33O' ,uuid=1823  )
++    user2 = MobileUser.create( phone_number='09360581929',F_name= 'MAhan',L_name = 'shamsi',age = 31, 
++    model = 'note 8 pro' ,os_version=11, os_name = 'ORE33O' ,uuid=1283  )
++
++    # dev1 = BaseUser('siavash','MEehrad',21)
++    # dev2 = BaseUser('setayesh','Rad',13)
++
++    # print(setattr(user, 'model1','xiaomi')) 
++
++
++    def __add__(self,other):
++        return self.fname + other.fname
++
++    print(user == user2)
++    print(id(user))
++
++    print((user.Fullname()))
++     
+\ No newline at end of file
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+new file mode 100644
+--- /dev/null	(date 1644074636182)
++++ b/index.html	(date 1644074636182)
+@@ -0,0 +1,16 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta http-equiv="X-UA-Compatible" content="IE=edge">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Document</title>
++
++    <script src="./java.js"></script>
++</head>
++<body>
++   <div>dsdskd</div> 
++   <div>sdsd</div>
++   <div>ssd</div>
++</body>
++</html>
+\ No newline at end of file
+Index: Estate Project/Agent.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Agent.py b/Estate Project/Agent.py
+new file mode 100644
+--- /dev/null	(date 1653466925442)
++++ b/Estate Project/Agent.py	(date 1653466925442)
+@@ -0,0 +1,113 @@
++from Estate import Baseproperty, Rental, Purchasable, Apartment, House
++from Profile import ApartmentRental, ApartmentPurchase, HouseRental, HousePurchase
++
++
++class BaseUser:
++
++    def __init__(self, username, password, first_name, last_name, email, **kwargs):
++        super().__init__(**kwargs)
++        self.username = username
++        self.password = password
++        self.first_name = first_name
++        self.last_name = last_name
++        self.email = email
++
++    @classmethod
++    def prompt(cls):
++        print(' Add Agent ')
++        username = input('Enter Username ? ')
++        passsword = input('enter password ')
++        first_name = input('Enter first_Name: ')
++        last_name = input('Enter lastname: ')
++        email = input('enter Email: ')
++
++        result = {
++            'username': username,
++            'password': passsword,
++            'first_name': first_name,
++            'last_name': last_name, 'email': email
++        }
++        return result
++
++
++class Superviser(BaseUser):
++    agents_list = []
++    properties_list = {}
++    deal_list = []
++
++    def __init__(self, **kwargs):
++        super().__init__(**kwargs)
++
++    @staticmethod
++    def create_agent():
++        agent_data = Agent.prompt()
++        agent = Agent(**agent_data)
++        return agent
++
++    @classmethod
++    def agent_data(cls):
++        tmp = []
++        for agent in cls.agents_list:
++            tmp.append(agent.serializer())
++        return tmp
++
++    @classmethod
++    def search(cls, username):
++        for agent in cls.agents_list:
++            if agent.username == username:
++                return agent
++            else:
++                return None
++
++
++class Agent(BaseUser):
++
++    def __init__(self, **kwargs):
++c
++        super().__init__(**kwargs)
++        Superviser.agents_list.append(self)
++        self.properties_list = []
++        self.deal_list = []
++        self.__has_access = False
++
++    @classmethod
++    def prompt(cls):
++        return BaseUser.prompt()
++
++    def serializer(self):
++        data = self.__dict__
++        data.pop('properties_list')
++        data.pop('deal_list')
++        data.pop('_Agent__has_access')
++        return data
++
++    def check_password(self, password):
++        check = bool(self.password == password)
++        if check:
++            self.__has_access = True
++        return check
++
++    def has_access(self):
++        return self.__has_access
++
++    def check_access(func):
++        def wrapper(self):
++            if self.has_access():
++                # print('Has Access ')
++                func(self)
++            else:
++                print('Agent has No Access...! ')
++
++        return wrapper
++
++    @check_access
++    def create_new(self):
++        pr_type = input('Enter the type with two word: ').lower()
++        from constant import PROFILE_MAPPER
++        ProfileClasss = PROFILE_MAPPER[tuple(tp for tp in pr_type.split())]
++        prop_data = ProfileClasss.prompt()
++        self.properties_list.append(prop_data)
++        Superviser.properties_list[self.username] = prop_data
++
++    def search_deal():
++        pass
+Index: Estate Project/constant.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/constant.py b/Estate Project/constant.py
+new file mode 100644
+--- /dev/null	(date 1652710400433)
++++ b/Estate Project/constant.py	(date 1652710400433)
+@@ -0,0 +1,21 @@
++from Supervisor_main import Run_Supervisor_Mood
++from Agent_main import Run_Agent_Mood
++from Profile import ApartmentRental, ApartmentPurchase, HouseRental, HousePurchase
++
++
++SUPERVISER_CREDENTIALS = [{
++    'username': 'admin',
++    'password': '1234'
++}]
++RUNNNIG_MOOD = {
++    '0' : Run_Agent_Mood,
++    '1' : Run_Supervisor_Mood
++}
++AGENTS_FILE_PATH = 'D:\projects\Estate Project\Fixtures\Agents_data.json'
++
++PROFILE_MAPPER = {
++    ('house' , 'rental') : HouseRental ,
++    ('house' , 'purchase') :HousePurchase ,
++    ('apartment' , 'rental') : ApartmentRental,
++    ('apartment' , 'purchase') : ApartmentPurchase
++}
+\ No newline at end of file
+Index: Estate Project/Supervisor_main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Supervisor_main.py b/Estate Project/Supervisor_main.py
+new file mode 100644
+--- /dev/null	(date 1652709913194)
++++ b/Estate Project/Supervisor_main.py	(date 1652709913194)
+@@ -0,0 +1,33 @@
++import sys
++from Estate import Apartment
++from utils import check_credentials
++from Agent import Superviser , Agent
++from Profile import ApartmentRental, ApartmentPurchase, HouseRental, HousePurchase
++from Store import save_to_file , load_data
++# from constant import AGENTS_FILE_PATH
++# if __name__ == '__main__':
++
++    # sys.argv.append('admin')
++    # sys.argv.append('123')
++
++    # print(sys.argv[2])
++def Run_Supervisor_Mood():
++    pass
++
++    if check_credentials(sys.argv):
++        print('correct info...')
++        exit = None
++        while exit != '1':
++            agent = Superviser.create_agent()
++            from constant import AGENTS_FILE_PATH
++            exit = input('Continue(0) _Exit(1)')
++            if exit =='1':
++                save_to_file(AGENTS_FILE_PATH , Superviser.agent_data())
++
++    else:
++        print('Wrong user or pass')
++
++
++
++# ap  = Apartment.prompt()
++# print(pr1.area)
+Index: Estate Project/Profile.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Profile.py b/Estate Project/Profile.py
+new file mode 100644
+--- /dev/null	(date 1652703990194)
++++ b/Estate Project/Profile.py	(date 1652703990194)
+@@ -0,0 +1,40 @@
++
++from unittest import result
++from Estate import Apartment, Rental, Purchasable, House
++
++class ApartmentRental(Apartment, Rental):
++    @classmethod
++    def prompt (cls):
++        result = Apartment.prompt()
++        result.update(Rental.prompt())
++        return result
++
++
++class ApartmentPurchase(Apartment, Purchasable):
++    @classmethod
++    def prompt (cls):
++        result = Apartment.prompt()
++        result.update(Purchasable.prompt())
++        return result
++
++
++class HouseRental(House, Rental):
++    @classmethod
++    def prompt (cls):
++        result = House.prompt()
++        result.update(Rental.prompt())
++        return result
++
++
++class HousePurchase(House, Purchasable):
++    @classmethod
++    def prompt (cls):
++        result = House.prompt()
++        result.update(Purchasable.prompt())
++        return result
++
++
++
++
++
++
+Index: Estate Project/Tot.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate Project/Tot.py b/Estate Project/Tot.py
+new file mode 100644
+--- /dev/null	(date 1652948461152)
++++ b/Estate Project/Tot.py	(date 1652948461152)
+@@ -0,0 +1,15 @@
++import json
++import os
++
++# test= {'name': 'Siavsh' , 'lastname' : 'Rad' , 'age': 21 }
++# jtest = json.dumps(test)
++# print(jtest)
++
++with open('D:\projects\Estate Project\siamehr.txt' , 'r') as f:
++
++    line = f.read()
++    agents_list = json.loads(line)
++print(agents_list[1])
++    # f.writelines('second line')
++    # print(f.readlines())
++      
+Index: .vscode/.idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.vscode/.idea/modules.xml b/.vscode/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1646466325596)
++++ b/.vscode/.idea/modules.xml	(date 1646466325596)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/../Estate_prj/.idea/.vscode.iml" filepath="$PROJECT_DIR$/../Estate_prj/.idea/.vscode.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: Estate_prj/settings.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/settings.json b/Estate_prj/settings.json
+new file mode 100644
+--- /dev/null	(date 1645978057716)
++++ b/Estate_prj/settings.json	(date 1645978057716)
+@@ -0,0 +1,14 @@
++{
++    "liveServer.settings.multiRootWorkspaceName": "vscode",
++    "liveServer.settings.port": 5501,
++    "livePreview.defaultPreviewPath": "/index.html",
++    "python.testing.unittestArgs": [
++        "-v",
++        "-s",
++        "./py",
++        "-p",
++        "*test.py"
++    ],
++    "python.testing.pytestEnabled": false,
++    "python.testing.unittestEnabled": true
++}
+\ No newline at end of file
+Index: Estate_prj/launch.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Estate_prj/launch.json b/Estate_prj/launch.json
+new file mode 100644
+--- /dev/null	(date 1646206169309)
++++ b/Estate_prj/launch.json	(date 1646206169309)
+@@ -0,0 +1,20 @@
++{
++    // Use IntelliSense to learn about possible attributes.
++    // Hover to view descriptions of existing attributes.
++    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
++    "version": "0.2.0",
++    "configurations": [
++    
++        
++        {
++            "name": "Python: Current File",
++            "type": "python",
++            "request": "launch",
++            "program": "${file}",
++            "console": "integratedTerminal",
++            "cwd": "${workspaceRoot}",
++            "args":["--username","admin" ,  "--password" ,"123"],
++            "env": {"username":"admin"}
++                }
++    ]
++}
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1652947030116)
++++ b/.idea/vcs.xml	(date 1652947030116)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: d
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/d b/d
+new file mode 100644
+--- /dev/null	(date 1653466901657)
++++ b/d	(date 1653466901657)
+@@ -0,0 +1,165 @@
++See 'git help <command>' to read about a specific subcommand
++
++Main Porcelain Commands
++   add                  Add file contents to the index
++   am                   Apply a series of patches from a mailbox
++   archive              Create an archive of files from a named tree
++   bisect               Use binary search to find the commit that introduced a bug
++   branch               List, create, or delete branches
++   bundle               Move objects and refs by archive
++   checkout             Switch branches or restore working tree files
++   cherry-pick          Apply the changes introduced by some existing commits
++   citool               Graphical alternative to git-commit
++   clean                Remove untracked files from the working tree
++   clone                Clone a repository into a new directory
++   commit               Record changes to the repository
++   describe             Give an object a human readable name based on an available ref
++   diff                 Show changes between commits, commit and working tree, etc
++   fetch                Download objects and refs from another repository
++   format-patch         Prepare patches for e-mail submission
++   gc                   Cleanup unnecessary files and optimize the local repository
++   gitk                 The Git repository browser
++   grep                 Print lines matching a pattern
++   gui                  A portable graphical interface to Git
++   init                 Create an empty Git repository or reinitialize an existing one
++   log                  Show commit logs
++   maintenance          Run tasks to optimize Git repository data
++   merge                Join two or more development histories together
++   mv                   Move or rename a file, a directory, or a symlink
++   notes                Add or inspect object notes
++   pull                 Fetch from and integrate with another repository or a local branch
++   push                 Update remote refs along with associated objects
++   range-diff           Compare two commit ranges (e.g. two versions of a branch)
++   rebase               Reapply commits on top of another base tip
++   reset                Reset current HEAD to the specified state
++   restore              Restore working tree files
++   revert               Revert some existing commits
++   rm                   Remove files from the working tree and from the index
++   shortlog             Summarize 'git log' output
++   show                 Show various types of objects
++   sparse-checkout      Initialize and modify the sparse-checkout
++   stash                Stash the changes in a dirty working directory away
++   status               Show the working tree status
++   submodule            Initialize, update or inspect submodules
++   switch               Switch branches
++   tag                  Create, list, delete or verify a tag object signed with GPG
++   worktree             Manage multiple working trees
++
++Ancillary Commands / Manipulators
++   config               Get and set repository or global options
++   fast-export          Git data exporter
++   fast-import          Backend for fast Git data importers
++   filter-branch        Rewrite branches
++   mergetool            Run merge conflict resolution tools to resolve merge conflicts
++   pack-refs            Pack heads and tags for efficient repository access
++   prune                Prune all unreachable objects from the object database
++   reflog               Manage reflog information
++   remote               Manage set of tracked repositories
++   repack               Pack unpacked objects in a repository
++   replace              Create, list, delete refs to replace objects
++
++Ancillary Commands / Interrogators
++   annotate             Annotate file lines with commit information
++   blame                Show what revision and author last modified each line of a file
++   bugreport            Collect information for user to file a bug report
++   count-objects        Count unpacked number of objects and their disk consumption
++   difftool             Show changes using common diff tools
++   fsck                 Verifies the connectivity and validity of the objects in the database
++   gitweb               Git web interface (web frontend to Git repositories)
++   help                 Display help information about Git
++   instaweb             Instantly browse your working repository in gitweb
++   merge-tree           Show three-way merge without touching index
++   rerere               Reuse recorded resolution of conflicted merges
++   show-branch          Show branches and their commits
++   verify-commit        Check the GPG signature of commits
++   verify-tag           Check the GPG signature of tags
++   whatchanged          Show logs with difference each commit introduces
++
++Interacting with Others
++   archimport           Import a GNU Arch repository into Git
++   cvsexportcommit      Export a single commit to a CVS checkout
++   cvsimport            Salvage your data out of another SCM people love to hate
++   cvsserver            A CVS server emulator for Git
++   imap-send            Send a collection of patches from stdin to an IMAP folder
++   p4                   Import from and submit to Perforce repositories
++   quiltimport          Applies a quilt patchset onto the current branch
++   request-pull         Generates a summary of pending changes
++   send-email           Send a collection of patches as emails
++   svn                  Bidirectional operation between a Subversion repository and Git
++
++Low-level Commands / Manipulators
++   apply                Apply a patch to files and/or to the index
++   checkout-index       Copy files from the index to the working tree
++   commit-graph         Write and verify Git commit-graph files
++   commit-tree          Create a new commit object
++   hash-object          Compute object ID and optionally creates a blob from a file
++   index-pack           Build pack index file for an existing packed archive
++   merge-file           Run a three-way file merge
++   merge-index          Run a merge for files needing merging
++   mktag                Creates a tag object with extra validation
++   mktree               Build a tree-object from ls-tree formatted text
++   multi-pack-index     Write and verify multi-pack-indexes
++   pack-objects         Create a packed archive of objects
++   prune-packed         Remove extra objects that are already in pack files
++   read-tree            Reads tree information into the index
++   symbolic-ref         Read, modify and delete symbolic refs
++   unpack-objects       Unpack objects from a packed archive
++   update-index         Register file contents in the working tree to the index
++   update-ref           Update the object name stored in a ref safely
++   write-tree           Create a tree object from the current index
++
++Low-level Commands / Interrogators
++   cat-file             Provide content or type and size information for repository objects
++   cherry               Find commits yet to be applied to upstream
++   diff-files           Compares files in the working tree and the index
++   diff-index           Compare a tree to the working tree or index
++   diff-tree            Compares the content and mode of blobs found via two tree objects
++   for-each-ref         Output information on each ref
++   for-each-repo        Run a Git command on a list of repositories
++   get-tar-commit-id    Extract commit ID from an archive created using git-archive
++   ls-files             Show information about files in the index and the working tree
++   ls-remote            List references in a remote repository
++   ls-tree              List the contents of a tree object
++   merge-base           Find as good common ancestors as possible for a merge
++   name-rev             Find symbolic names for given revs
++   pack-redundant       Find redundant pack files
++   rev-list             Lists commit objects in reverse chronological order
++   rev-parse            Pick out and massage parameters
++   show-index           Show packed archive index
++   show-ref             List references in a local repository
++   unpack-file          Creates a temporary file with a blob's contents
++   var                  Show a Git logical variable
++   verify-pack          Validate packed Git archive files
++
++Low-level Commands / Syncing Repositories
++   daemon               A really simple server for Git repositories
++   fetch-pack           Receive missing objects from another repository
++   http-backend         Server side implementation of Git over HTTP
++   send-pack            Push objects over Git protocol to another repository
++   update-server-info   Update auxiliary info file to help dumb servers
++
++Low-level Commands / Internal Helpers
++   check-attr           Display gitattributes information
++   check-ignore         Debug gitignore / exclude files
++   check-mailmap        Show canonical names and email addresses of contacts
++   check-ref-format     Ensures that a reference name is well formed
++   column               Display data in columns
++   credential           Retrieve and store user credentials
++   credential-cache     Helper to temporarily store passwords in memory
++   credential-store     Helper to store credentials on disk
++   fmt-merge-msg        Produce a merge commit message
++   interpret-trailers   Add or parse structured information in commit messages
++   mailinfo             Extracts patch and authorship from a single e-mail message
++   mailsplit            Simple UNIX mbox splitter program
++   merge-one-file       The standard helper program to use with git-merge-index
++   patch-id             Compute unique ID for a patch
++   sh-i18n              Git's i18n setup code for shell scripts
++   sh-setup             Common Git shell script setup code
++   stripspace           Remove unnecessary whitespace
++
++External commands
++   askyesno
++   credential-helper-selector
++   flow
++   lfs
++   update-git-for-windows
+Index: .idea/projects.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/projects.iml b/.idea/projects.iml
+new file mode 100644
+--- /dev/null	(date 1651916126859)
++++ b/.idea/projects.iml	(date 1651916126859)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 3.10 (projects)" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++  <component name="PyDocumentationSettings">
++    <option name="format" value="PLAIN" />
++    <option name="myDocStringFormat" value="Plain" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1651908462394)
++++ b/.idea/modules.xml	(date 1651908462394)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/projects.iml" filepath="$PROJECT_DIR$/.idea/projects.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1651908462449)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1651908462449)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1651908463197)
++++ b/.idea/.gitignore	(date 1651908463197)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1652445503463)
++++ b/.idea/encodings.xml	(date 1652445503463)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/Estate Project/Profile.py" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/siamehr.php b/siamehr.php
+new file mode 100644

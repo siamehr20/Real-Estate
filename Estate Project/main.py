@@ -6,7 +6,7 @@ if __name__ == '__main__':
         from constant import RUNNNIG_MOOD
         run_func = RUNNNIG_MOOD[mood]
         run_func()
-        print('s')
+
 flag = 0
 while flag != 1:
     Run_App()

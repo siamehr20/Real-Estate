@@ -1,5 +1,6 @@
 from Estate import Baseproperty, Rental, Purchasable, Apartment, House
 from Profile import ApartmentRental, ApartmentPurchase, HouseRental, HousePurchase
+from decorator import check_access
 
 
 class BaseUser:
@@ -63,7 +64,6 @@ class Superviser(BaseUser):
 class Agent(BaseUser):
 
     def __init__(self, **kwargs):
-
         super().__init__(**kwargs)
         Superviser.agents_list.append(self)
         self.properties_list = []
@@ -89,16 +89,6 @@ class Agent(BaseUser):
 
     def has_access(self):
         return self.__has_access
-
-    def check_access(func):
-        def wrapper(self):
-            if self.has_access():
-                # print('Has Access ')
-                func(self)
-            else:
-                print('Agent has No Access...! ')
-
-        return wrapper
 
     @check_access
     def create_new(self):

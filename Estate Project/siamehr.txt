@@ -1,2 +1,1 @@
-[{"username": "siamehr", "password": "123", "first_name": "sdsd", "last_name": "hhj", "email": "cdcdcdd"} , {"username": "from store import load_data", "password": "1233", "first_name": "assos", "last_name": "asas", "email": "fvvf;"}, {"username": "agent2", "password": "123", "first_name": "agnt_1", "last_name": "agent2", "email": "wd;;"},
-{"username": "seta1", "password": "1234", "first_name": "setayesh", "last_name": "rad", "email": "setayedh2G@gmail.vom"}  ]
+[  ]
